@@ -1,0 +1,252 @@
+:root {
+	--radius: 6px;
+}
+/* --- Tickets Table --- */
+#tix .tix_tickets_table {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0;
+	background: #fff;
+	border: 1px solid var(--wp--preset--color--accent-5);
+	border-radius: var(--radius);
+	box-shadow: var(--shadow);
+	overflow: hidden;
+	margin-block: var(--wp--style--block-gap, 16px);
+}
+
+#tix .tix_tickets_table thead th {
+	background: var(--wp--preset--color--contrast);
+	color: #fff;
+	text-align: left;
+	font-weight: 700;
+	font-size: calc(var(--wp--preset--font-size--normal) * 0.95);
+	padding: clamp(12px, var(--wp--style--block-gap, 16px), 18px);
+	border-bottom: 3px solid var(--wp--preset--color--accent);
+}
+
+#tix .tix_tickets_table tbody th,
+#tix .tix_tickets_table tbody td {
+	padding: clamp(12px, var(--wp--style--block-gap, 16px), 18px);
+	vertical-align: top;
+	border-bottom: 1px solid var(--wp--preset--color--accent-5);
+	font-size: var(--wp--preset--font-size--normal);
+	text-align: left;
+}
+
+#tix .tix_tickets_table tbody tr:nth-child(odd) {
+	background: var(--wp--preset--color--base-2);
+}
+
+#tix .tix_tickets_table tbody tr:hover {
+	background: color-mix(in oklab, var(--wp--preset--color--base-2) 70%, white);
+}
+
+/* --- Column specifics --- */
+#tix .tix-column-price {
+	font-weight: 600;
+	color: var(--wp--preset--color--contrast);
+}
+
+#tix .tix-column-remaining {
+	color: var(--wp--preset--color--contrast-3);
+}
+
+/* --- Ticket titles &amp; excerpts --- */
+#tix .tix-ticket-title {
+	display: inline-block;
+	font-weight: 700;
+	color: var(--wp--preset--color--contrast);
+	font-size: calc(var(--wp--preset--font-size--normal) * 1.125);
+	line-height: 1.25;
+}
+#tix .tix-ticket-excerpt {
+	display: inline-block;
+	margin-top: calc(var(--wp--style--block-gap, 16px) / 4);
+	color: var(--wp--preset--color--contrast-3);
+}
+
+/* --- Inputs (text/email/url/tel/number), textarea, select --- */
+#tix input[type='text'],
+#tix input[type='email'],
+#tix input[type='url'],
+#tix input[type='tel'],
+#tix input[type='number'],
+#tix textarea,
+#tix select {
+	width: 100%;
+	padding: 10px 12px;
+	background: #fff;
+	color: var(--wp--preset--color--contrast-2);
+	border: 1px solid var(--wp--preset--color--accent-5);
+	border-radius: var(--radius);
+	font-size: var(--wp--preset--font-size--normal);
+	transition: border-color 0.15s ease, box-shadow 0.15s ease;
+	margin-block: calc(var(--wp--style--block-gap, 16px) / 2);
+	box-sizing: border-box;
+}
+
+#tix input:focus,
+#tix select:focus,
+#tix textarea:focus {
+	outline: none;
+	border-color: var(--wp--preset--color--accent);
+	box-shadow: 0 0 0 var(--wp-admin-border-width-focus, 2px)
+		color-mix(in oklab, var(--wp--preset--color--accent) 25%, transparent);
+}
+
+/* Disabled */
+#tix input:disabled,
+#tix select:disabled,
+#tix textarea:disabled {
+	background: var(--wp--preset--color--base-2);
+	color: var(--wp--preset--color--contrast-3);
+	cursor: not-allowed;
+	opacity: 0.7;
+}
+
+/* Select caret */
+#tix select {
+	appearance: none;
+	background-image: linear-gradient(
+			45deg,
+			transparent 50%,
+			var(--wp--preset--color--contrast-3) 50%
+		),
+		linear-gradient(
+			135deg,
+			var(--wp--preset--color--contrast-3) 50%,
+			transparent 50%
+		);
+	background-position: calc(100% - 18px) 50%, calc(100% - 12px) 50%;
+	background-size: 6px 6px, 6px 6px;
+	background-repeat: no-repeat;
+}
+
+#tix fieldset {
+	border: 0;
+}
+#tix fieldset label {
+	cursor: pointer;
+}
+
+/* --- Submit button --- */
+#tix input[type='submit'] {
+	background: var(--wp--preset--color--accent);
+	border-radius: var(--radius) !important;
+	border-color: var(--wp--preset--color--contrast);
+	border-width: 0;
+	color: var(--wp--preset--color--base);
+	font-family: var(--wp--preset--font-family--plus-jakarta-sans);
+	font-size: var(--wp--preset--font-size--small);
+	font-style: normal;
+	font-weight: 700;
+	letter-spacing: inherit;
+	line-height: inherit;
+	padding-top: 0.8rem !important;
+	padding-right: 1.6rem !important;
+	padding-bottom: 0.98rem !important;
+	padding-left: 1.6rem !important;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+/* --- Mobile layout --- */
+@media (max-width: 720px) {
+	#tix .tix_tickets_table thead {
+		display: none;
+	}
+	#tix .tix_tickets_table,
+	#tix .tix_tickets_table tbody,
+	#tix .tix_tickets_table tr,
+	#tix .tix_tickets_table th,
+	#tix .tix_tickets_table td {
+		display: block;
+		width: 100%;
+	}
+	#tix .tix_tickets_table tbody tr {
+		border-bottom: 1px solid var(--wp--preset--color--accent-5);
+		padding-block: calc(var(--wp--style--block-gap, 16px) / 2);
+	}
+	#tix input[type='submit'] {
+		width: 100%;
+	}
+}
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+	#tix * {
+		transition: none !important;
+	}
+}
+/* --- Payment method tabs (Stripe / All payment methods) --- */
+#tix .tix-payment-method {
+	display: flex;
+	gap: var(--wp--style--block-gap, 16px);
+	margin-block: var(--wp--style--block-gap, 16px);
+}
+
+#tix .tix-payment-tab {
+	background: var(--wp--preset--color--base-2);
+	color: var(--wp--preset--color--contrast-2);
+	border: 1px solid var(--wp--preset--color--accent-5);
+	border-radius: var(--radius);
+	padding: 10px 16px;
+	font-size: var(--wp--preset--font-size--normal);
+	cursor: pointer;
+	transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+
+/* selected tab */
+#tix .tix-payment-tab.tix-tab-selected,
+#tix .tix-payment-tab[aria-pressed='true'] {
+	background: var(--wp--preset--color--accent);
+	border-color: var(--wp--preset--color--accent);
+	color: #fff;
+}
+
+#tix .tix-payment-tab:hover {
+	background: var(--wp--preset--color--base);
+}
+
+#tix .tix-payment-tab.tix-tab-selected:hover {
+	background: var(--wp--preset--color--accent-2);
+}
+
+/* --- Payment method container list --- */
+#tix .tix-payment-method-container {
+	border: 1px solid var(--wp--preset--color--accent-5);
+	border-radius: var(--radius);
+	padding: calc(var(--wp--style--block-gap, 16px) * 0.75);
+	background: #fff;
+	margin-block: var(--wp--style--block-gap, 16px);
+	box-shadow: var(--shadow);
+}
+/* --- Tix Notices (info / instructions) --- */
+#tix-notices .tix-notice {
+	background: var(--wp--preset--color--base-2);
+	border: 1px solid var(--wp--preset--color--accent-4);
+	border-left: 4px solid var(--wp--preset--color--accent);
+	padding: calc(var(--wp--style--block-gap, 16px) * 0.9);
+	margin-block: var(--wp--style--block-gap, 16px);
+	border-radius: var(--radius);
+	box-shadow: var(--shadow);
+	color: var(--wp--preset--color--contrast-2);
+	font-size: var(--wp--preset--font-size--normal);
+	line-height: 1.5;
+}
+
+#tix-notices .tix-notice p {
+	margin: 0 0 calc(var(--wp--style--block-gap, 16px) / 2);
+}
+
+#tix-notices .tix-notice p:last-child {
+	margin-bottom: 0;
+}
+
+/* HOMEPAGE */
+
+.wcb_speaker figure {
+	max-width: 100%;
+	aspect-ratio: 1;
+	height: auto !important;
+}
